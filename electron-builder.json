@@ -1,0 +1,52 @@
+{
+  "appId": "com.alixby.app",
+  "productName": "alixby",
+  "copyright": "3.10.24",
+  "asar": true,
+  "compression": "store",
+  "directories": {
+    "output": "release"
+  },
+  "extraResources": [
+    { "from": "./static/engine", "to": "./engine"},
+    { "from": "./static/crx", "to": "./crx"}
+  ],
+  "files": [
+    "dist"
+  ],
+  "mac": {
+    "artifactName": "${productName}v${version}-${arch}.${ext}",
+    "target": [
+      {
+        "target": "dmg",
+        "arch": ["x64", "arm64"]
+      }
+    ]
+  },
+  "linux": {
+    "category": "Utility",
+    "artifactName": "${productName}v${version}-${arch}.${ext}",
+    "target": [
+      {
+        "target": "AppImage",
+        "arch": [ "x64" ]
+      }
+    ]
+  },
+  "win": {
+    "icon": "./app.ico",
+    "target": [
+      {
+        "target": "nsis",
+        "arch": [ "x64" ]
+      }
+    ],
+    "artifactName": "${productName}v${version}-${arch}.${ext}"
+  },
+  "nsis": {
+    "oneClick": false,
+    "perMachine": false,
+    "allowToChangeInstallationDirectory": true,
+    "deleteAppDataOnUninstall": false
+  }
+}
